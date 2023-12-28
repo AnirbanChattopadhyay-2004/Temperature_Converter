@@ -150,7 +150,7 @@ export default function temperature({setdegree,setunit})
        
             if(final=='k' && degree<0)
             degree=0;
-          if(final==''||initial=='')
+          if(final==''||initial==''||tempe=='')
           degree=''
         setTemp(tempe);
         setdegree((degree!='')? (degree.toFixed(3)):'')
