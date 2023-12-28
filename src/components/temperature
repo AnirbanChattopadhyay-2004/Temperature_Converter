@@ -1,0 +1,64 @@
+// const [celcius,setCelcius]=useState('');
+    // const [farhen,setFerhen]=useState('');
+    // const [kelvin,setKelvin]=useState('');
+   
+    
+    // function convfromcelc(e)
+    // {
+    //     const cel= e.target.value;  
+    //     let far,kel;
+    //     console.log((Number)(cel))
+    //     if(!cel)   //checks whether value exists or not 
+    //     {
+    //         far='';
+    //         kel='';
+    //     }    
+    //     else
+    //     {
+    //         far=((Number)(cel)*1.8 + 32)
+    //         kel=((Number)(cel)+ 273.15)
+    //     }
+    //     setCelcius(cel)
+    //    setFerhen(far);
+    //     setKelvin(kel);
+    // }
+    // function convfromfarh(e)
+    // {
+    //     const far=e.target.value;
+    //     let cel,kel;
+    //     if(!far)
+    //     {
+    //         cel='';
+    //         kel='';
+    //     }
+    //     else
+    //     {
+    //         cel=((Number)(far)-32)*(5/9)
+    //         kel=(Number)(cel)+273.15;
+    //     }
+    //     setCelcius(cel);
+    //     setFerhen(far);
+    //     setKelvin(kel);
+    // }
+    // function convfromkel(e)
+    // {
+    //     const kel=e.target.value;
+    //     let cel,far;
+    //     if(!kel)
+    //     {
+    //         cel='';
+    //         far='';
+    //     }
+    //     else
+    //       {
+    //         cel=(Number)(kel)-273.15;
+    //         far=((Number)(cel)*1.8+32)
+    //     }
+    //     setCelcius(cel);
+    //     setFerhen(far);
+    //     setKelvin(kel);
+    // }
+    {/* <input type="text" value={celcius} onChange={convfromcelc} placeholder="celcius"/>
+        <input type="text" value={farhen} onChange={convfromfarh} placeholder="Farhenheit"/>
+        <input type="text" value={kelvin} onChange={convfromkel} placeholder="Kelvin"/>  */}
+        
