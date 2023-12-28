@@ -11,62 +11,149 @@ export default function temperature({setdegree,setunit})
     
     const [initial,setInitial]=useState('');
     const [final,setFinal]=useState('');
-    // const[convdig,setConvdig]=useState('');
+   
     const [temp,setTemp]=useState('');
     const [val, setVal] = React.useState('');
     const [value,setValue]=React.useState('');
     
+  function handlefinal(e){
+    let f=e.target.value
+    let degree
+    // alert(initial+"  "+final)
+    switch(initial){
+      case 'c':
+          if(f=='c')
+              degree=(Number)(temp);
+          else if(f=='k')
+              degree=(Number)(temp)+273.15;
+           else
+              degree=((Number)(temp)*1.8 + 32)
+          break;
+       case 'f':
+          if(f=='f'){
+              degree=(Number)(temp);
+              // console.log(degree)
+          }
+              else if(f=='c')
+              degree=((Number)(temp)-32)*(5/9);
+              else
+              
+                  degree=((Number)(temp)-32)*(5/9)+273.15
 
+              
+              break;
+      case 'k':
+          if(f=='k')
+          degree=(Number)(temp);
+          else if(f=='c')
+          degree=(Number)(temp)-273.15;
+          else
+          degree=((Number)(temp)-273.15)*1.8 + 32
 
+      break;
 
+  }
+  //alert(degree)
+  if(f=='k' && degree<0)
+  degree=0;
+  if(f==''||initial=='')
+  degree=''
+
+  setdegree((degree!='')? (degree.toFixed(3)):'')
+
+  }
+
+  function handleinitial(e){
+    let i=e.target.value
+    let degree
+  
+    switch(i){
+      case 'c':
+          if(final=='c')
+              degree=(Number)(temp);
+          else if(final=='k')
+              degree=(Number)(temp)+273.15;
+           else
+              degree=((Number)(temp)*1.8 + 32)
+          break;
+       case 'f':
+          if(final=='f'){
+              degree=(Number)(temp);
+             
+          }
+              else if(final=='c')
+              degree=((Number)(temp)-32)*(5/9);
+              else
+              
+                  degree=((Number)(temp)-32)*(5/9)+273.15
+
+              
+              break;
+      case 'k':
+          if(final=='k')
+          degree=(Number)(temp);
+          else if(final=='c')
+          degree=(Number)(temp)-273.15;
+          else
+          degree=((Number)(temp)-273.15)*1.8 + 32
+
+      break;
+
+  }
+  
+  if(final=='k' && degree<0)
+  degree=0;
+  if(final==''||initial=='')
+  degree=''
+
+  setdegree((degree!='')? (degree.toFixed(3)):'')
+
+  }
+
+  
 
     function handlechange(e)
     {
-        let degree;
-       let tempe=e.target.value;
+      let degree;
+      let tempe=e.target.value;
         switch(initial){
-            case 'c':
-                if(final=='c')
-                    degree=(Number)(tempe);
-                else if(final=='k')
-                    degree=(Number)(tempe)+273.15;
-                 else
-                    degree=((Number)(tempe)*1.8 + 32)
-                break;
-             case 'f':
-                if(final=='f'){
-                    degree=(Number)(tempe);
-                    // console.log(degree)
-                }
-                    else if(final=='c')
-                    degree=((Number)(tempe)-32)*(5/9);
-                    else
-                    
-                        degree=((Number)(tempe)-32)*(5/9)+273.15
+          case 'c':
+            if(final=='c')
+            degree=(Number)(tempe);
+          else if(final=='k')
+          degree=(Number)(tempe)+273.15;
+        else
+        degree=((Number)(tempe)*1.8 + 32)
+      break;
 
-                    
-                    break;
-            case 'k':
-                if(final=='k')
-                degree=tempe;
-                else if(final=='c')
-                degree=(Number)(tempe)-273.15;
-                else
-                degree=((Number)(tempe)-273.15)*1.8 + 32
-
-            break;
-
+      case 'f':
+        if(final=='f'){
+          degree=(Number)(tempe);
+          
         }
-        //alert(degree)
-        if(final=='k' && degree<0)
-        degree=0;
-        if(final=='')
-        degree=0
-        setTemp(tempe);
+        else if(final=='c')
+        degree=((Number)(tempe)-32)*(5/9);
+      else
+        degree=((Number)(tempe)-32)*(5/9)+273.15
+        break;
 
-        // setConvdig(degree.toFixed(3));
-        
-        setdegree( degree.toFixed(3))
+      case 'k':
+        if(final=='k')
+        degree=(Number)(tempe);
+        else if(final=='c')
+        degree=(Number)(tempe)-273.15;
+        else
+        degree=((Number)(tempe)-273.15)*1.8 + 32
+        break;
+                
+      }
+       
+            if(final=='k' && degree<0)
+            degree=0;
+          if(final==''||initial=='')
+          degree=''
+        setTemp(tempe);
+        setdegree((degree!='')? (degree.toFixed(3)):'')
     }
     return (
         
@@ -88,6 +175,7 @@ export default function temperature({setdegree,setunit})
           onChange={(e)=>{
             setInitial(e.target.value)
             setVal(e.target.value)
+            handleinitial(e)
         }}
           autoWidth
           label="Temp"
@@ -120,6 +208,7 @@ export default function temperature({setdegree,setunit})
             setunit(e.target.value)
             setFinal(e.target.value)
             setValue(e.target.value)
+            handlefinal(e)
         }}
           autoWidth
           label="Temp"
