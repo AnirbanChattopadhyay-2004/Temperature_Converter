@@ -4,6 +4,12 @@ import Box from "@mui/material/Box";
 // import Header from "./components/Header";
 import Temperature from "./components/Temperature.jsx";
 import Viewer from "./components/viewer";
+
+
+
+
+
+
 export default function App()
 {
   const [deg,setDeg]=useState('')
